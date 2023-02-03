@@ -56,7 +56,7 @@ extension MultipartFormData {
         switch data {
         case .array(let array):
             return array.enumerated().flatMap { offset, element in
-                namedParts(from: element, path: path.map { "\($0)[\(offset)]" }) }
+                namedParts(from: element, path: path.map { "\($0)[]" }) }
         case .single(var part):
             part.name = path
             return [part]
